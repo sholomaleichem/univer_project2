@@ -1,0 +1,2 @@
+use community_db;
+insert into news VALUES (NULL, "Almost 60 tornado reports as killer storms rock Midwest", "A violent storm system blasting through parts of the Midwest was linked to three deaths while fueling almost 60 tornado reports Monday and Tuesday – with more damage possible Wednesday, forecasters warned. ");

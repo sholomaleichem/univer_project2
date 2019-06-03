@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Open Bill</title>
+    <meta name="description" content="spring-boot thymeleaf | home ">
+    <div th:replace="fragments/header :: header-css"></div>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="tab-content">
+    <div class="tab-pane active" id="addTaskTab">
+        <div class="container">
+            <div class="content-container clearfix">
+
+                <!--end Trash task tab-->
+            </div>
+        </div>
+    </div>
+
+    <!--<a>-->
+    <!--<form th:action="@{/new_bill}">-->
+    <!--<input class="btn" type="submit" value="New Bill"/>-->
+    <!--</form>-->
+    <!--</a>-->
+    <!--&lt;!&ndash; trash tab &ndash;&gt;-->
+    <!--th:class="${#request.getParameter('deletion')=='del'} ? ' tab-pane active' : 'tab-pane' "-->
+</div>
+<footer>
+    <div class="separator" th:replace="fragments/footer :: footer">&copy; 2019 Oleg Dibrov</div>
+</footer>
+
+<script type="text/javascript">
+    $(function () {
+        $('#startDatePicker').datetimepicker({
+            defaultDate: 'now',
+            viewMode: 'days',
+            format: 'DD/MM/YYYY'
+        });
+    });
+
+
+</script>
+<script>
+    $('#modal-toTrash').on('show.bs.modal', function (e) {
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+        $('#modal-toTrashHiddenId').val($(this).find('.btn-ok').attr('href'));
+    });
+
+    $('#modal-delete').on('show.bs.modal', function (e) {
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+        $('#modal-deleteHiddenId').val($(this).find('.btn-ok').attr('href'));
+    });
+
+</script>
+</body>
+</html>
